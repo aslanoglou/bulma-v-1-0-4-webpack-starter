@@ -1,0 +1,178 @@
+@charset "utf-8";
+
+/*! bulma.io v1.0.4 | MIT License | github.com/jgthms/bulma */
+
+
+
+@use "sass";
+@use "sass/utilities/mixins";
+
+@font-face {
+  font-family: 'Averta';
+  src: url('../public/fonts/Averta-Regular.woff2') format('woff2'),
+  url('../public/fonts/Averta-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Averta';
+  src: url('../public/fonts/Averta-Bold.woff2') format('woff2'),
+  url('../public/fonts/Averta-Bold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+//$family-primary: Averta;
+
+:root{
+  --osfp-red-bg: #AA1318;
+  --bulma-body-family: Averta
+}
+
+header{
+  background-color: var(--osfp-red-bg);
+  background-size: cover;
+  background-position: center;
+  .hero-img{
+    @include mixins.mobile{
+      height:80vh;
+      width:auto;
+    }
+  }
+}
+
+main{
+  background-color: var(--osfp-red-bg);
+  .h2-image{
+    display: block;
+    &:before,
+    &:after{
+      width: 208px;
+      height: 1px;
+      background-color:white;
+      display: block;
+      position:absolute;
+      top:0;
+      left:0;
+      @include mixins.tablet{
+        content:"";
+      }
+    }
+    &:before{
+      transform: translateX(-100px) translateY(-30px);
+    }
+    &:after{
+      transform: translateX(-150px) translateY(-35px);
+    }
+  }
+
+  .teams,.votes{
+    &__team{
+      position: relative;
+      &__title-area{
+        background: #FF0008;
+        background: linear-gradient(90deg,rgba(255, 0, 8, 1) 0%, rgba(185, 24, 29, 1) 100%);
+      }
+      button.is-underlined:hover {
+        text-decoration: none!important;
+      }
+      &__text{
+        height:0;
+        overflow:hidden;
+        position: absolute;
+        transition:ease-in-out opacity .15s;
+        opacity:0;
+        top: 100px;
+        box-sizing:border-box;
+        left:0;
+        padding:0 0 0 16px;
+        width:100%;
+        border-radius:8px;
+        background: rgba(185, 24, 29, 10);
+        background: linear-gradient(180deg, rgba(185, 24, 29, 0.9) 0%, rgba(129, 0, 4, 0.9) 100%);
+
+        &:before,
+        &:after{
+          width: 100px;
+          height: 1px;
+          background-color:white;
+          display: block;
+          position:absolute;
+          top:0;
+          left:0;
+          @include mixins.tablet{
+            content:"";
+          }
+        }
+        &:before{
+          transform: translateX(60px) translateY(30px);
+        }
+        &:after{
+          transform: translateX(80px) translateY(35px);
+        }
+      }
+      &__scroll-area{
+        max-height:350px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 16px;
+        scrollbar-width: thin; /* for Firefox */
+        scrollbar-color: white transparent; /* for Firefox */
+      }
+      &__scroll-area::-webkit-scrollbar {
+        width: 8px; /* Adjust width */
+      }
+
+      &__scroll-area::-webkit-scrollbar-track {
+        background: transparent; /* Transparent track */
+      }
+
+      &__scroll-area::-webkit-scrollbar-thumb {
+        background-color: white; /* White draggable part */
+        border-radius: 4px; /* Rounded corners */
+      }
+      &__scroll-area::-webkit-scrollbar-button {
+        display: none;
+        height: 0;
+        width: 0;
+      }
+      &__close-btn{
+        position:absolute;
+        top:0;
+        right:8px;
+        line-height:16px;
+      }
+      &__remove-btn{
+        position:absolute;
+        top:0;
+        right:0;
+        line-height:16px;
+        background: #FF0008;
+        background: linear-gradient(90deg,rgba(255, 0, 8, 1) 0%, rgba(185, 24, 29, 1) 100%);
+        span{
+          transform:translateY(-2px);
+        }
+      }
+      &--active{
+        z-index: 10;
+        .teams__team__text{
+          z-index: 10;
+            opacity:1;
+          height: auto;
+          padding:64px 0 16px;
+        }
+      }
+    }
+  }
+}
+
+footer{
+    background-color: #740000;
+    padding: 56px  ;
+    .footer__logo{
+
+    }
+}
